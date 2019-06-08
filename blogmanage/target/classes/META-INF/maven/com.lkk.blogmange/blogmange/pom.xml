@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.lkk.blogmange</groupId>
+  <artifactId>blogmange</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>blogmange</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+	<parent>
+		<groupId>com.blogmanage</groupId>
+		<artifactId>blogmanage-parent</artifactId>
+		<version>1.0.0</version>
+		<relativePath>pom-parent.xml</relativePath>
+	</parent>
+	
+	<modules>
+		<module>manage-framework</module>
+		<module>manage-gencode</module>
+		<module>manage-act</module>
+		<module>manage-company</module>
+		<module>manage-mq</module>
+		<module>manage-cms</module>
+        <module>manage-web</module>
+		
+    </modules>
+</project>
