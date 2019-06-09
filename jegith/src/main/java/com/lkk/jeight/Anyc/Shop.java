@@ -2,6 +2,8 @@ package com.lkk.jeight.Anyc;
 
 import java.util.Random;
 
+import com.lkk.jeight.Anyc.Discount.Code;
+
 public class Shop {
 	
 	private String name;
