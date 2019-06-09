@@ -28,7 +28,7 @@ public class Discount {
      */
     private static double apply(double price, Code code) {
         Shop.delay();
-         int i = 0;
+         int i = 2;
         
         return price * (100 - code.percentage) / 100;
     }
