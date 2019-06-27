@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huzhi.webgis.webgiddto.dao.TdglJhbzMapper" >
+  <resultMap id="BaseResultMap" type="com.huzhi.webgis.webgiddto.domain.TdglJhbz" >
+    <id column="OID" property="oid" jdbcType="DECIMAL" />
+    <result column="JHKSSJ" property="jhkssj" jdbcType="TIMESTAMP" />
+    <result column="JHJGSJ" property="jhjgsj" jdbcType="TIMESTAMP" />
+    <result column="TDGLJYX" property="tdgljyx" jdbcType="VARCHAR" />
+    <result column="ZYGZXM" property="zygzxm" jdbcType="VARCHAR" />
+    <result column="XMLX" property="xmlx" jdbcType="VARCHAR" />
+    <result column="SFYYJH" property="sfyyjh" jdbcType="VARCHAR" />
+    <result column="SQDW" property="sqdw" jdbcType="VARCHAR" />
+    <result column="DWYXSM" property="dwyxsm" jdbcType="VARCHAR" />
+    <result column="ZRDW" property="zrdw" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    OID, JHKSSJ, JHJGSJ, TDGLJYX, ZYGZXM, XMLX, SFYYJH, SQDW, DWYXSM, ZRDW
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from TDGL_JHBZ
+    where OID = #{oid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from TDGL_JHBZ
+    where OID = #{oid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.huzhi.webgis.webgiddto.domain.TdglJhbz" >
+    insert into TDGL_JHBZ (OID, JHKSSJ, JHJGSJ, 
+      TDGLJYX, ZYGZXM, XMLX, 
+      SFYYJH, SQDW, DWYXSM, 
+      ZRDW)
+    values (#{oid,jdbcType=DECIMAL}, #{jhkssj,jdbcType=TIMESTAMP}, #{jhjgsj,jdbcType=TIMESTAMP}, 
+      #{tdgljyx,jdbcType=VARCHAR}, #{zygzxm,jdbcType=VARCHAR}, #{xmlx,jdbcType=VARCHAR}, 
+      #{sfyyjh,jdbcType=VARCHAR}, #{sqdw,jdbcType=VARCHAR}, #{dwyxsm,jdbcType=VARCHAR}, 
+      #{zrdw,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.huzhi.webgis.webgiddto.domain.TdglJhbz" >
+    insert into TDGL_JHBZ
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="oid != null" >
+        OID,
+      </if>
+      <if test="jhkssj != null" >
+        JHKSSJ,
+      </if>
+      <if test="jhjgsj != null" >
+        JHJGSJ,
+      </if>
+      <if test="tdgljyx != null" >
+        TDGLJYX,
+      </if>
+      <if test="zygzxm != null" >
+        ZYGZXM,
+      </if>
+      <if test="xmlx != null" >
+        XMLX,
+      </if>
+      <if test="sfyyjh != null" >
+        SFYYJH,
+      </if>
+      <if test="sqdw != null" >
+        SQDW,
+      </if>
+      <if test="dwyxsm != null" >
+        DWYXSM,
+      </if>
+      <if test="zrdw != null" >
+        ZRDW,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="oid != null" >
+        #{oid,jdbcType=DECIMAL},
+      </if>
+      <if test="jhkssj != null" >
+        #{jhkssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jhjgsj != null" >
+        #{jhjgsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tdgljyx != null" >
+        #{tdgljyx,jdbcType=VARCHAR},
+      </if>
+      <if test="zygzxm != null" >
+        #{zygzxm,jdbcType=VARCHAR},
+      </if>
+      <if test="xmlx != null" >
+        #{xmlx,jdbcType=VARCHAR},
+      </if>
+      <if test="sfyyjh != null" >
+        #{sfyyjh,jdbcType=VARCHAR},
+      </if>
+      <if test="sqdw != null" >
+        #{sqdw,jdbcType=VARCHAR},
+      </if>
+      <if test="dwyxsm != null" >
+        #{dwyxsm,jdbcType=VARCHAR},
+      </if>
+      <if test="zrdw != null" >
+        #{zrdw,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huzhi.webgis.webgiddto.domain.TdglJhbz" >
+    update TDGL_JHBZ
+    <set >
+      <if test="jhkssj != null" >
+        JHKSSJ = #{jhkssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jhjgsj != null" >
+        JHJGSJ = #{jhjgsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tdgljyx != null" >
+        TDGLJYX = #{tdgljyx,jdbcType=VARCHAR},
+      </if>
+      <if test="zygzxm != null" >
+        ZYGZXM = #{zygzxm,jdbcType=VARCHAR},
+      </if>
+      <if test="xmlx != null" >
+        XMLX = #{xmlx,jdbcType=VARCHAR},
+      </if>
+      <if test="sfyyjh != null" >
+        SFYYJH = #{sfyyjh,jdbcType=VARCHAR},
+      </if>
+      <if test="sqdw != null" >
+        SQDW = #{sqdw,jdbcType=VARCHAR},
+      </if>
+      <if test="dwyxsm != null" >
+        DWYXSM = #{dwyxsm,jdbcType=VARCHAR},
+      </if>
+      <if test="zrdw != null" >
+        ZRDW = #{zrdw,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where OID = #{oid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huzhi.webgis.webgiddto.domain.TdglJhbz" >
+    update TDGL_JHBZ
+    set JHKSSJ = #{jhkssj,jdbcType=TIMESTAMP},
+      JHJGSJ = #{jhjgsj,jdbcType=TIMESTAMP},
+      TDGLJYX = #{tdgljyx,jdbcType=VARCHAR},
+      ZYGZXM = #{zygzxm,jdbcType=VARCHAR},
+      XMLX = #{xmlx,jdbcType=VARCHAR},
+      SFYYJH = #{sfyyjh,jdbcType=VARCHAR},
+      SQDW = #{sqdw,jdbcType=VARCHAR},
+      DWYXSM = #{dwyxsm,jdbcType=VARCHAR},
+      ZRDW = #{zrdw,jdbcType=VARCHAR}
+    where OID = #{oid,jdbcType=DECIMAL}
+  </update>
+</mapper>
