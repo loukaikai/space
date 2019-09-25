@@ -23,12 +23,14 @@
 	
 	<modules>
 		<module>manage-framework</module>
-		<module>manage-gencode</module>
+		<!-- <module>manage-gencode</module>
 		<module>manage-act</module>
 		<module>manage-company</module>
 		<module>manage-mq</module>
-		<module>manage-cms</module>
+		<module>manage-cms</module> -->
         <module>manage-web</module>
-		
+        <module>manage-im</module>
+       <!--  <module>manage-Generator</module>
+		<module>manage-autocode</module> -->
     </modules>
 </project>

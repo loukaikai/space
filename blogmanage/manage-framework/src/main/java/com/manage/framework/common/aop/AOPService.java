@@ -1,6 +1,9 @@
-package com.manage.framework.modules.aop;
+package com.manage.framework.common.aop;
 
 import java.util.Date;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.aspectj.lang.JoinPoint;
@@ -11,6 +14,8 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 @Component
 @Aspect
@@ -41,20 +46,23 @@ public class AOPService {
     
     @Before("controllerLog()")
     public void before(JoinPoint joinPoint) {
-    	logger.debug(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss") 
-    					+ " | " +"AOP Before:"+joinPoint.getSignature().getDeclaringType()+
-    						" method: "+joinPoint.getSignature().getName());
-    	
     	logger.info(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss") 
 				+ " | " +"AOP Before:"+joinPoint.getSignature().getDeclaringType()+
 					" method: "+joinPoint.getSignature().getName());
+    	
+    	ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+		HttpServletRequest request = attributes.getRequest();
+		StringBuffer requestURL =   request.getRequestURL();
+		String mothod = request.getMethod();
+		String addr = request.getRemoteAddr();
+		Map<String,String[]> map = request.getParameterMap();
+		logger.info("HTTP连接信息：requestURL ： "+requestURL+" mothod: "+mothod+" addr:"+addr+" params:"+map
+				+"class_method="+joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName()
+				+"args="+ joinPoint.getArgs());
     }
     
     @AfterReturning(pointcut=("controllerLog()"),returning="retval")
     public void after(JoinPoint joinPoint,Object retval) {
-    	logger.debug(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss") 
-    			+ " | " +"AOP AfterReturning:Object");
-    	
     	logger.info(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss") 
     			+ " | " +"AOP AfterReturning:Object"+ retval.getClass().getSimpleName());
     }

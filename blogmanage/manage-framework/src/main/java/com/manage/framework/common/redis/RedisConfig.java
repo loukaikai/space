@@ -1,4 +1,4 @@
-package com.manage.framework.modules.redis;
+package com.manage.framework.common.redis;
 
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;

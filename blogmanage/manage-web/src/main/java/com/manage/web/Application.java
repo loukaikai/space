@@ -1,5 +1,6 @@
 package com.manage.web;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,7 +8,6 @@ import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfig
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * @program: spring-boot-example
@@ -17,10 +17,11 @@ import org.springframework.context.annotation.Configuration;
  **/
 
 //@SpringBootApplication
-@ComponentScan(basePackages = {"com","com.manage","cn.xxx"})
+@ComponentScan(basePackages = {"com","com.manage.*","cn.xxx"})
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 //@Configuration
 @EnableAutoConfiguration(exclude = {JpaRepositoriesAutoConfiguration.class })
+@MapperScan(basePackages = {"com.manage.*"})
 public class Application {
 	
 	

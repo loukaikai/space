@@ -1,4 +1,4 @@
-package com.manage.framework.modules.redis;
+package com.manage.framework.common.redis;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.Message;
